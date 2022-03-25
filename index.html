@@ -1,69 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    
-    <link rel="stylesheet" href="style.css">
-    <!-- <script src="script.js" defer></script>  -->
 
-    <title>Etch-A-Sketch</title>
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+<link href="style.css" rel="stylesheet" type="text/css">
+<script src="script.js" defer></script>
+<head>
+    <title>Etch-a-Sketch</title>
 </head>
 <body>
-    <div id="mainContainer">
-        <div id="container"></div>
-    </div>
-    </div>
-
+    <h1>Welcome to Etch-a-Sketch</h1>
+    <p>Hover your cursor over the grid to draw!</p>
+    <button type="button" onclick="customFields()">Click to create new grid</button>
+    <div class="container"></div>
 </body>
-
-<script>
-
-    const mainContainer = document.getElementById("mainContainer");
-
-    const container = document.getElementById("container");
-
-    // Boton para elegir el tamaño y resetear la grid
-
-    const btn = document.createElement("button");
-    btn.textContent = "Press to select the grid size";
-    btn.classList.add("botom")
-
-    mainContainer.appendChild(btn);    
-    mainContainer.appendChild(container)
-
-    // Esto hace la grid 
-    
-
-    function makeRows(rows, cols) {
-        container.style.setProperty('--grid-rows', rows);
-        container.style.setProperty('--grid-cols', cols);
-        for (c = 0; c < (rows * cols); c++) {
-        let cell = document.createElement("div");
-        cell.innerText = (c + 1);
-        cell.addEventListener("mouseover", () => {
-            cell.classList.add("hover")
-        })
-
-        // btn function 
-
-        function clearGrid() {
-        cell.classList.remove("hover")
-        } 
-
-        btn.addEventListener("click", clearGrid);
-
-        btn.onclick = function(){window.prompt("Enter the desired grid size per side")}
-
-        container.appendChild(cell).className = "grid-item";
-        };        
-    };
-    
-    makeRows(16, 16);
-
-    
-
-</script>
-
-</html>
