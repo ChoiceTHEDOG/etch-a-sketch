@@ -55,9 +55,9 @@ function changeColor() {
 
     for (let i = 0; i < allFields.length; i++) {
         allFields[i].addEventListener('mouseover', function () {
-            let red = 0;
-            let green = 0;
-            let blue = 0;
+            let red = 255;
+            let green = 255;
+            let blue = 255;
             allFields[i].style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
         })
     }
