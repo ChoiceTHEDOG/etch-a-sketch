@@ -3,19 +3,19 @@ changeColor(16);
 
 
 function createGrid (numberFields) {
-    //create grid
+    // create grid
     document.querySelector('.container').style.gridTemplateRows = `repeat(${numberFields}, 1fr)`;
     document.querySelector('.container').style.gridTemplateColumns = `repeat(${numberFields}, 1fr)`;
 
-    //create grid items and place them in the grid
+    // create grid items and place them in the grid
     for (let row = 1; row < numberFields + 1; row++) {
         for (let column = 1; column < numberFields + 1; column++) {
-            //add to .container
+            // add to .container
             let newDiv = document.createElement('div');
             newDiv.classList.add('gridPart');
             document.querySelector('.container').appendChild(newDiv);
     
-            //position the element in the grid
+            // position the element in the grid
             newDiv.style.gridArea = `${row} ${column} ${row + 1} ${column + 1}`;
             
         }
@@ -23,7 +23,7 @@ function createGrid (numberFields) {
 }
 
 function customFields () {
-    //asks for input and creates that many fields
+    // asks for input and creates that many fields
     let customFields = prompt("How many fields per side would you like (max. 100)?");
     customFields = Math.round(customFields); //in case the input is float
     customFields = parseInt(customFields);
@@ -38,7 +38,7 @@ function customFields () {
         alert("Limit reached. Setting the number of fields to 100.")
     }
 
-    //deletes all fields
+    // deletes all fields
     let existingFields = document.querySelectorAll('.gridPart');
 
     for (let i= 0; i < existingFields.length; i++) {
@@ -50,14 +50,14 @@ function customFields () {
 }
 
 function changeColor() {
-    //changes the color of the field on hover
+    // changes the color of the field on hover
     let allFields = document.querySelectorAll('.gridPart');
 
     for (let i = 0; i < allFields.length; i++) {
         allFields[i].addEventListener('mouseover', function () {
-            let red = 255;
-            let green = 255;
-            let blue = 255;
+            let red = 0;
+            let green = 0;
+            let blue = 0;
             allFields[i].style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
         })
     }
